@@ -14,6 +14,7 @@ const switchColor = () => {
     const intervalId = setInterval(() => {
         if (targetStop) {
             clearInterval(intervalId)
+            buttonStartRef.removeAttribute("disabled");
         } else {
             let indexColor;
             const randomIntegerFromInterval = (min, max) => {
@@ -21,6 +22,7 @@ const switchColor = () => {
             };
             randomIntegerFromInterval(0, colors.length - 1);
             bodyRef.style.backgroundColor = colors[indexColor];
+            buttonStartRef.setAttribute("disabled", "disabled");
         }
     }, 1000)
 };
